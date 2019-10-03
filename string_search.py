@@ -3,7 +3,7 @@
 def findInString(str, pattern):
     if len(pattern) > len(str):
         return -1
-    elif len(str) == 0 or len(pattern) == 0
+    elif len(str) == 0 or len(pattern) == 0:
         return -1
 
     s_arr = [c for c in str]
@@ -12,6 +12,9 @@ def findInString(str, pattern):
 
     for index, cs in enumerate(s_arr):
         i = 0
+
+        if index + len(p_arr) > len(s_arr):
+            break
 
         for iIndex, cp in enumerate(p_arr):
             if cs == cp and i == 0:
@@ -31,7 +34,6 @@ def findInString(str, pattern):
             break
 
     return startIndex
-
 
 print(findInString("Hello world, are you still spinning?", "world"))
 print(findInString("Hello world, are you still spinning?", "still"))
